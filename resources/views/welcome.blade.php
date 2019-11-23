@@ -14,7 +14,7 @@
         
     </head>
     <body>
-        hello
+        
     @include('nav')
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
