@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>ULT-FOOD</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="css/app.css">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!--link rel="stylesheet" href="css/app.css"-->
         <!-- Styles -->
         
         
@@ -29,7 +30,9 @@
                 </div>
             @endif
 
-            @yield('content')
+           
         </div>
+        @yield('content')
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
