@@ -17,7 +17,8 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $order=Order::all();
+        //$menus =Menu::with('Produits')->get();
+        $order = Order::with('Utilisateur')->get();
         $itemmenus=ItemMenu::all();
         $utilisateurs=Utilisateur::all();
         

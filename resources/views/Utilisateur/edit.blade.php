@@ -6,6 +6,14 @@
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">modifier Utilisateur</h1>
         
+        @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div><br />
         
         <form method="post" action="{{ route('Utilisateur.update', $Utilisateur->id) }}">
             @method('PATCH') 

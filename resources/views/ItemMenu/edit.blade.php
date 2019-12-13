@@ -16,7 +16,7 @@
         </div>
         <br /> 
         @endif
-        <form method="post" action="{{ route('ItemMenu.update', $ItemMenu->id) }}">
+        <form method="post" action="{{ route('ItemMenu.update', $ItemMenu->id) }}" enctype="multipart/form-data">
             @method('PATCH') 
             @csrf
             <div class="form-group">
@@ -38,6 +38,14 @@
                         @endforeach
                     </select>
                 </div>
+
+            <div class="form-group">
+              
+                    <input type="file" name="image" />
+                    <img src="{{URL::to('/')}}/images/{{$ItemMenu->image}}" width="75" />
+            <input type="hidden" name="hidden_name" value="{{$ItemMenu->image}}" />
+      
+                  </div>
 
            
             

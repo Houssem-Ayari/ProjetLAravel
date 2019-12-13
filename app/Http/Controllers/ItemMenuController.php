@@ -42,11 +42,17 @@ class ItemMenuController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(['image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+        $image = $request->file('image');
+        $new_name = rand().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'),$new_name);
         $itemmenu= new ItemMenu ([
             
             'nom_item_menu' => $request->get('nom_item_menu'),
             'description_item_menu' => $request->get('description_item_menu'),
-            'id_menu' => $request->get('id_menu')
+            'prix' => $request->get('prix_item_menu'),
+            'image' => $new_name,
+            'id_menu' => $request->get('id_menu'),
            
         ]);
         $itemmenu->save();
@@ -86,9 +92,25 @@ class ItemMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $itemmenu = ItemMenu::find($id);
+        
+        
+        
+        if($request->hasFile('image')){
+            
+            $request->validate(['image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+            $image = $request->file('image');
+            $new_name = rand().'.'.$image->getClientOriginalExtension();
+            
+            $image->move(public_path('images'),$new_name);
+            $itemmenu->image = $new_name;
+
+        }
+        
         $itemmenu->nom_item_menu = $request->get('nom_item_menu');
         $itemmenu->description_item_menu = $request->get('description_item_menu');
+        //$itemmenu->prix=1;
         $itemmenu->id_menu = $request->get('id_menu');
         
         $itemmenu->save();

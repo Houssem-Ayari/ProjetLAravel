@@ -17,6 +17,8 @@ class CreateItemMenusTable extends Migration
             $table->bigIncrements('id');
             $table->string('nom_item_menu');
             $table->string('description_item_menu');
+            $table->integer('prix');
+            $table->string('image');
             $table->unsignedBigInteger('id_menu');
             $table->foreign('id_menu')->references('id')->on('menus');
             $table->timestamps();

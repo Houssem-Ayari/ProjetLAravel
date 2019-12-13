@@ -15,7 +15,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('ItemMenu.store') }}">
+      <form method="post" action="{{ route('ItemMenu.store') }}" enctype="multipart/form-data" >
           @csrf
           <div class="form-group">    
               <label for="nom_item_menu">nom de item menu:</label>
@@ -27,6 +27,12 @@
               <input type="text" class="form-control" name="description_item_menu"/>
           </div>
 
+
+          <div class="form-group">
+            <label for="prix_item_menu">Prix:</label>
+            <input type="text" class="form-control" name="prix_item_menu"/>
+        </div>
+ 
           <div class="form-group">
                 <label for="description_item_menu">Description menu:</label>
                 <select name=id_menu class="form-control">
@@ -34,6 +40,12 @@
                 <option value="{{$item->id}}">{{$item->nommenu}}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="form-group">
+              
+              <input type="file" name="image" />
+
             </div>
                     
           <button type="submit" class="btn btn-primary-outline">Ajouter item menu</button>
@@ -49,6 +61,8 @@
               <td>ID</td>
               <td>nom menu</td>
               <td>description menu</td>
+              <td>prix</td>
+              <td>image</td>
               <td>nom menu</td>
               
               <td colspan = 2>Actions</td>
@@ -60,6 +74,8 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->nom_item_menu}}</td>
                 <td>{{$item->description_item_menu}}</td>
+                <td>{{$item->prix}}</td>
+                <td><img src="{{URL::to('/')}}/images/{{$item->image}}" class="img-thumbnail" width="75" /></td>
                 <td>{{$item->id_menu}}</td>
                 
                 <td>

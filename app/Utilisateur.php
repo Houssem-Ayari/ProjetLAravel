@@ -17,4 +17,11 @@ class Utilisateur extends Model
     protected $fillable = [
         'nom_utilisateur', 'prenom_utilisateur','adresse_utilisateur','email_utilisateur','badge_utilisateur'
     ];
+
+    public function Ordes()
+    {
+        return $this->hasMany(Order::class);
+    }
+    
 }
+

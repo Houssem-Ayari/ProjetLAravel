@@ -18,4 +18,8 @@ class Menu extends Model
     protected $fillable = [
         'nommenu', 'descriptionmenu'
     ];
+
+    public function ItemMenus(){
+        return $this->hasMany(ItemMenu::class,'id_menu');
+    }
 }

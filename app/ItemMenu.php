@@ -15,7 +15,7 @@ class ItemMenu extends Model
      * @var array
      */
     protected $fillable = [
-        'nom_item_menu', 'description_item_menu','id_menu'
+        'nom_item_menu', 'description_item_menu','prix', 'image', 'id_menu'
     ];
 
     public function menu(){

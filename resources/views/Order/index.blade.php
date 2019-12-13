@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-        
+     
  <div class="col-sm-8 offset-sm-2">
     <h1 class="display-4">Ajouter ordre</h1>
   <div>
@@ -58,14 +58,16 @@
               <td colspan = 2>Actions</td>
             </tr>
         </thead>
+        <?php var_dump($order) ; ?> 
         <tbody>
+          
             @foreach($order as $item)
             <tr>
                 <td>{{$item->id}}</td>
-               
+                 
                 <td>{{$item->id_item_menu}}</td>
                 <td>{{$item->id_utilisateur}}</td>
-                
+               
                 <td>
                     <a href="{{ route('Order.edit',$item->id)}}" class="btn btn-primary">modifier</a>
                 </td>

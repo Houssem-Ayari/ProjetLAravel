@@ -20,7 +20,7 @@ class Order extends Model
     public function itemmenu(){
         return $this->belongsTo(ItemMenu::class);
     }
-    public function utilisateur(){
+    public function Utilisateur(){
         return $this->belongsTo(Utilisateur::class);
     }
 }
